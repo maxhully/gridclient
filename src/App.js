@@ -3,7 +3,7 @@ import "./App.css";
 
 const colors = ["magenta", "cyan", "yellow", "blue", "red", "white", "green"];
 
-const SOCKET_SERVER_URL = "ws://localhost:8080/";
+const SOCKET_SERVER_URL = "ws://206.189.191.231/live/";
 
 const Block = ({ color, onMouseMove, onClick }) => (
     <div
@@ -148,7 +148,7 @@ class DrawingGrid extends React.Component {
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { live: false };
+        this.state = { live: true };
     }
     render() {
         return this.state.live ? <LiveGrid /> : <DrawingGrid />;
