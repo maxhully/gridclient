@@ -1,12 +1,16 @@
 FROM node:9.11.2-alpine
 
-COPY package.json /code
+COPY package.json /code/
 
 WORKDIR /code
 
 RUN npm install
-RUN npm build
 
-EXPOSE 3000
+COPY . /code
 
-CMD ["serve"]
+RUN npm run build
+RUN npm install -g serve
+
+EXPOSE 5000
+
+CMD ["serve", "--single", "./build"]
